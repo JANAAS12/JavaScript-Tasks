@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="width: 378px; height: 54px; background-color: yellow; text-align: center;">
+        <h3 id="D1" onmouseover="changeText()" onmouseout="setText()">Hello World!</h3>
+    </div>
+          
+    <script>
+        function changeText() {
+            // Change text when mouse is over
+            document.getElementById("D1").textContent = "Can I help you!";
+        }
+
+        function setText() {
+            // Reset text when mouse is out
+            document.getElementById("D1").textContent = "Hello World!";
+        }
+    </script>
+</body>
+</html>

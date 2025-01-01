@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+  <select id="TextStyle" onchange="ChangeText()">
+    <option value="Times New Roman" >Time New Roman </option>
+    <option value="Fantasy" >Fantasy </option>
+  </select>
+  
+  <select id="TextSize" onchange="ChangeText()">
+    <option value="10px" >10px </option>
+    <option value="15px">15px </option>
+  </select>
+ 
+ <input type="checkbox" id="type1" name="ItalicText" value="Italic" onclick="ToItalic()">
+ <label>Italic</label>
+ 
+ <input type="checkbox" id="type2" name="BoldText" value="Bold" onclick="ToBold()">
+ <label>Bold</label>
+ 
+ <input type="checkbox" id="type3" name="underlinetext" value="UnderLine" onclick="Underline()">
+ <label>UnderLine</label>
+<br>
+<br>
+ <div style="width:400px ; height:200px ;border: 1px solid ;">
+  <p id="PText">The quik brown fox over the lazy dog</p>
+ </div>
+
+
+
+
+    <script>
+    function ChangeText(){
+
+      let selectedFont=document.getElementById("TextStyle").value;
+      let selectedSize=document.getElementById("TextSize").value;
+       document.getElementById("PText").style.fontFamily=selectedFont;
+       document.getElementById("PText").style.fontSize=selectedSize;
+
+    }
+    function ToItalic(){
+        document.getElementById("PText").style.fontStyle="italic";
+
+    }
+    function ToBold(){
+        document.getElementById("PText").style.fontWeight="bold";
+    }
+    function Underline(){
+        document.getElementById("PText").style.textDecoration="underline";
+    }
+
+    </script>
+</body>
+</html>
