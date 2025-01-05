@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        form {
+        border:2px solid black;
+        
+        padding:10px;
+         margin: 20px;
+         margin-right: 1000px;
+        }
+        .card {
+            border:2px solid black;
+        
+        padding:10px;
+         margin: 20px;
+         margin-right: 1000px;
+        }
+    </style>
+</head>
+<body>
+     
+    <div>
+        <form onsubmit="handleSubmit(event)">
+        <label>Name:</label>
+    <input id="firstName" name="firstName" type="text" />
+    <br>
+    <br>
+    <label >Age:</label>
+    <input id="age" name="age"  />
+  <br>
+  <br>
+    <label >Gender:</label>
+    <input id="gender" name="gender"   />
+    <br>
+    <br>
+     <label>Birth Date:</label>
+     <input id="Birth"   type="date" name="date">
+     <br>
+     <br>
+     <label>Upload Your Image :</label>
+     <input id="Image"   type="file" name="file" >
+     <br>
+     <br>
+   <hr>
+   <label>Description :</label>
+   <input id="Description"   type="text" name="Description">
+   <br>
+   <br>
+   <label>Major & University:</label>
+   <input id="University" type="text" name="Uni">
+   <br>
+   <br>
+   <label>Programming Language:</label>
+   
+   <input type="checkbox" value="HTML" id="html">
+   <label>HTML</label>
+   <input type="checkbox" value="CSS" id="css">
+   <label>CSS</label>
+   <input type="checkbox" value="JavaScript" id="js">
+   <label>JavaScript</label>
+   <hr>
+   <br>
+   <br>
+   <label>Siblings Numbers:</label>
+   <input id="SiblingsNum" type="text" name="Num">
+   <br>
+   <br>
+   <label>Description of Siblings:</label>
+   <input id="Description2"   type="text" name="desc">
+   <br>
+   <br>
+   <button type="button" id="submitBtn">submit</button>
+        </form> 
+    </div>
+
+<div id="card">
+   <p id="nameOut"></p>
+   <p id="ageout"></p>
+   <p id="genderout"></p>
+   <p id="birthout"></p>
+   <p id="imgout"></p>
+   <p id="descriptionout"></p>
+   <p id="uniout"></p>
+   <p id="htmlout"></p>
+   <p id="cssout"></p>
+   <p id="jsout"></p>
+   <p id="siblingsNumout"></p>
+   <p id="description2out"></p>
+</div>
+
+
+
+
+
+<script>
+    const submitButton = document.getElementById('submitBtn');
+    submitButton.addEventListener('click',handleSubmit );
+    submitButton.addEventListener('click',showLocal );
+
+    function handleSubmit(event){ 
+        event.preventDefault();
+        saveToLocal();
+    }
+
+    function saveToLocal() {
+    localStorage.setItem("FirstName", document.getElementById("firstName").value);
+    localStorage.setItem("Age", document.getElementById("age").value);
+    localStorage.setItem("Gender", document.getElementById("gender").value);
+    localStorage.setItem("Birthday", document.getElementById("Birth").value);
+    
+    localStorage.setItem("image", document.getElementById("Image").value);
+    localStorage.setItem("description", document.getElementById("Description").value);
+    localStorage.setItem("university", document.getElementById("University").value);
+    localStorage.setItem("Html", document.getElementById("html").value);
+    localStorage.setItem("Css", document.getElementById("css").value);
+    localStorage.setItem("Js", document.getElementById("js").value);
+    localStorage.setItem("siblingsNum", document.getElementById("SiblingsNum").value);
+    localStorage.setItem("description2", document.getElementById("Description2").value);
+
+}
+
+
+function showLocal() {
+    document.getElementById("nameOut").innerText = "Name Output: " + localStorage.getItem("FirstName");
+    document.getElementById("ageout").innerText = "Age Output: " + localStorage.getItem("Age");
+    document.getElementById("genderout").innerText = "Gender Output: " + localStorage.getItem("Gender");
+
+    document.getElementById("birthout").innerText = "Birthday Output: " + localStorage.getItem("Birthday");
+    document.getElementById("imgout").innerText = "Img Output: " + localStorage.getItem("image");
+    document.getElementById("descriptionout").innerText = "description Output: " + localStorage.getItem("description");
+
+    document.getElementById("uniout").innerText = "Uni Output: " + localStorage.getItem("university");
+    document.getElementById("htmlout").innerText = checklanguage();
+    
+    document.getElementById("siblingsNumout").innerText = "siblingsNum Output: " + localStorage.getItem("siblingsNum");
+    document.getElementById("description2out").innerText = "description2 Output: " + localStorage.getItem("description2");
+
+}
+function checklanguage() {
+    let html = document.getElementById('html');
+    let css = document.getElementById('css');
+    let js = document.getElementById('js');
+    if (html.checked && css.checked && js.checked){
+        return "langugaes output :" +html.value +", " + css.value +" "+js.value
+    }
+    else if (css.checked && js.checked ){
+        return "langugaes output :" +css.value +", " + js.value
+    }
+    else if (html.checked && js.checked ){
+        return "langugaes output :" +html.value +", " + js.value
+    }
+    if (html.checked && css.checked ){
+        return "langugaes output :" +html.value +", " + css.value
+    }
+    else if (html.checked){
+        return "langugaes output :" +html.value
+    }
+
+    else if (css.checked ){
+        return "langugaes output :" +css.value
+    }
+    else if (js.checked ){
+        return "langugaes output :" +js.value
+    }
+}
+
+</script>
+
+
+
+</body>
+</html>
