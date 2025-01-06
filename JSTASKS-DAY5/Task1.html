@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select id="Flag" onchange="changeFlag()">
+        <option value="jordan">Jordan</option>
+        <option value="palestine">Palestine</option>
+    </select>
+    
+    <div id="space">
+        <img id="img1" src="jo-flag.jpg" style="display:block;max-width: 200px;"> 
+        <img id="img2" src="Palestine.jpg" style="display: none;max-width: 200px;"> 
+    </div>
+
+    <script>
+        function changeFlag() {
+            var f = document.getElementById("Flag").value;
+            
+            
+            document.getElementById("img1").style.display = "none";
+            document.getElementById("img2").style.display = "none";
+            
+           
+            if (f === "jordan") {
+                document.getElementById("img1").style.display = "block";
+            } else if (f === "palestine") {
+                document.getElementById("img2").style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
