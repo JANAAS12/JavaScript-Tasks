@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .error {
+            color: red;
+            font-size: 0.9em;
+            margin-left: 10px;
+            display: inline;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+    <label>Enter FirstName:</label><br>
+    <input id="FirstName" name="firstName" type="text" />
+    <p id="pFirstName" class="error"></p>
+    <br>
+    <br>
+    <label >Enter LastName:</label><br>
+    <input  id="Lastname"  type="text" name="lastname"  />
+    <p id="pLastname" class="error"></p>
+     <br>
+     <br>
+    <label >Enter a BirthDate:</label><br>
+    <input id="BirthDate" type="text" name="BirthDate"   />
+    <p id="pBirthDate" class="error"></p>
+    <br>
+    <br>
+     <label>Enter an Email:</label><br>
+     <input id="Email"type="email" name="email" >
+     <p id="pEmail" class="error"></p>
+     <br>
+     <br>
+     <label>confirm an Email:</label><br>
+     <input id="confirmEmail" type="email" name="Cemail" >
+     <p id="pConfirmEmail" class="error"></p>
+     <br>
+     <br>
+     <label >password:</label><br>
+     <input  id="Password"  type="text" name="password"  />
+     <p id="pPassword" class="error"></p>
+     <br>
+     <br>   
+     <label >Confirm password:</label><br>
+     <input  id="confirmPassword"  type="text" name="Cpassword"  />
+     <p id="pConfirmPassword" class="error"></p>
+     <br>
+     <br> 
+
+    </form>
+
+
+    <script>
+        let result="";
+      function validateInput(input, regex, errorMessage, PElementId){
+        const inputvalue = input.value;
+        if (!regex.test(inputvalue)) {
+            document.getElementById(PElementId).textContent = errorMessage;
+            } else {
+                document.getElementById(PElementId).textContent  = '';
+            }
+        }
+          
+
+        document.getElementById("FirstName").addEventListener("blur",function(){
+            const NameReg=/^[a-zA-Z_]+$/;
+            validateInput(this, NameReg, "Numbers are not allowed", "pFirstName");
+        })
+        document.getElementById("Lastname").addEventListener("blur",function(){
+            const NameReg=/^[a-zA-Z_]+$/;
+            validateInput(this, NameReg, "Numbers are not allowed", "pLastname");
+        })
+ 
+        document.getElementById("BirthDate").addEventListener("blur",function(){
+            var BirthDateReg = /^(0[1-9]|1\d|2\d|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
+            validateInput(this, BirthDateReg, "The date must be dd/mm/yyyy", "pBirthDate");
+        })
+        document.getElementById("Email").addEventListener("blur",function(){
+            var emailReg=/^[a-zA-Z0-9.%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$/;
+            validateInput(this, emailReg, "The email is not valid", "pEmail");
+        })
+        document.getElementById("confirmEmail").addEventListener("blur", function() {
+            const emailReg = /^[a-zA-Z0-9.%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            validateInput(this, emailReg, "The email is not valid", "pConfirmEmail");
+        });
+        document.getElementById("Password").addEventListener("blur", function() {
+            const passwordReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            validateInput(this, passwordReg, "Invalid password: Must be at least 8 characters, include an uppercase letter, a lowercase letter, a digit, and a special character.", "pPassword");
+        });
+
+        document.getElementById("confirmPassword").addEventListener("blur", function() {
+            const passwordReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            validateInput(this, passwordReg, "Invalid password: Must be at least 8 characters, include an uppercase letter, a lowercase letter, a digit, and a special character.", "pConfirmPassword");
+        });
+
+         
+       
+      
+
+
+
+    </script>
+</body>
+</html>
