@@ -1,0 +1,32 @@
+[
+    {
+    "name":"John Doh",
+    "age":25 ,
+     "Email":"JohnDoh@example.com",
+     "Profession":"Software Engineering"
+} ,
+{
+    "name":"Jain Smith",
+    "age":28 ,
+     "Email":"JainSmith@example.com",
+     "Profession":"Graphic Designer"
+},
+{
+    "name":"Bob Johnson",
+    "age":30 ,
+     "Email":"BobJohnson@example.com",
+     "Profession":"Data Analysis"
+},
+{
+    "name":"Alic williams",
+    "age":27 ,
+     "Email":"Alicwilliams@example.com",
+     "Profession":"Product Manager"
+},
+{
+    "name":"Michail Brown",
+    "age":32,
+     "Email":"MichailBrown@example.com",
+     "Profession":"Marketing"
+}
+]

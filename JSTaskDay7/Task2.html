@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+  .BContainer{
+   display: flex;
+   align-items: center;
+}
+.card {
+      border: 1px solid #000;
+      border-radius: 10px;
+      width:150px;
+      height: 190px;
+      margin: 10px;
+      padding: 20px;
+      
+      padding: 10px;
+      width: 200px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    </style>
+</head>
+<body>
+    <h3>User Cards</h3>
+    <button onclick="getData()">Load users</button>
+    <div id="container" class="BContainer">
+    
+   
+    </div>
+    <script>
+     async function getData(){
+        var response=await fetch('https://api.npoint.io/f380ca23433975527219');
+        var data=await response.json();
+          
+         const output=document.getElementById("container");
+         
+         for(var i=0;i<data.length;i++){
+           const card=document.createElement('div');
+           card.classList.add('card');
+           card.innerHTML=`<strong>${data[i].name} </strong><br><br>
+                            Age: ${data[i].age}<br><br>
+                            Email: ${data[i].Email}<br><br>
+                            Profession: ${data[i].Profession}<br>
+                             `
+           
+                             output.appendChild(card);
+           
+          
+         
+         }
+        }
+     
+    </script>
+
+</body>
+</html>
